@@ -11,7 +11,7 @@ body {
   background: linear-gradient(135deg, #ff9ec4, #ff69b4, #ffb6c1);
   background-size: 400% 400%;
   animation: bgFlow 10s ease infinite;
-  overflow-x: hidden; /* prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 /* Wrapper */
@@ -35,7 +35,8 @@ body {
   animation: fadeIn 2s ease-in forwards 1s;
 }
 
-.flag__left, .flag__right {
+.flag__left,
+.flag__right {
   transform: translateY(-50px);
   animation: dropIn 3s ease forwards;
 }
@@ -57,8 +58,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.5rem;
-  min-width: 280px;
+  gap: 1rem;
+  min-width: 250px;
 }
 
 .title .happy span,
@@ -68,7 +69,7 @@ body {
   transform: translateY(20px);
   animation: textUp 0.5s forwards;
   animation-delay: var(--t);
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 5vw, 3rem); /* responsive font */
   font-weight: 700;
   color: white;
   text-shadow: 0 0 10px #ff69b4;
@@ -78,8 +79,8 @@ body {
 .hat img {
   position: absolute;
   top: -50px;
-  left: 10%;
-  max-width: 100px;
+  left: 5%;
+  max-width: 15vw;
   transform: rotate(-15deg);
   animation: wiggle 3s ease-in-out infinite;
 }
@@ -87,7 +88,7 @@ body {
 /* Date */
 .date__of__birth span {
   color: white;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   font-weight: 600;
   animation: fadeIn 2s ease forwards;
 }
@@ -98,7 +99,7 @@ body {
   border: none;
   border-radius: 50px;
   padding: 0.6rem 1.5rem;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1rem);
   cursor: pointer;
   color: #ff69b4;
   font-weight: 600;
@@ -119,9 +120,10 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  min-width: 280px;
+  min-width: 250px;
 }
 
+/* Box Account */
 .box__account {
   background: rgba(255, 255, 255, 0.15);
   border-radius: 20px;
@@ -132,10 +134,11 @@ body {
   animation: popIn 2s ease forwards 2s;
 }
 
+/* Name */
 .name {
   margin-top: 1rem;
   color: white;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 3vw, 1.3rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,32 +151,56 @@ body {
 }
 
 /* Balloons */
-.balloon_one, .balloon_two {
+.balloon_one,
+.balloon_two {
   position: absolute;
   animation: floatUp 5s ease-in-out infinite;
-  max-width: 50px;
+  max-width: 10vw;
 }
 
-.balloon_one { left: -30px; top: -60px; animation-delay: 1s; }
-.balloon_two { right: -30px; top: -50px; animation-delay: 2s; }
+.balloon_one {
+  left: -5%;
+  top: -10%;
+  animation-delay: 1s;
+}
+
+.balloon_two {
+  right: -5%;
+  top: -8%;
+  animation-delay: 2s;
+}
 
 /* Decorations */
 .decorate_star {
   position: absolute;
-  width: 6px;
-  height: 6px;
+  width: 0.5vw;
+  height: 0.5vw;
   background: #fff;
   border-radius: 50%;
   animation: twinkle 2s ease-in-out infinite alternate;
 }
 
-.decorate_flower--one { left: 10%; bottom: 20px; animation: rotateFlower 8s linear infinite; }
-.decorate_flower--two { left: 45%; bottom: 25px; animation: rotateFlower 8s linear infinite; }
-.decorate_flower--three { right: 10%; bottom: 20px; animation: rotateFlower 8s linear infinite; }
+.decorate_flower--one {
+  left: 10%;
+  bottom: 5%;
+  animation: rotateFlower 8s linear infinite;
+}
+
+.decorate_flower--two {
+  left: 45%;
+  bottom: 6%;
+  animation: rotateFlower 8s linear infinite;
+}
+
+.decorate_flower--three {
+  right: 10%;
+  bottom: 5%;
+  animation: rotateFlower 8s linear infinite;
+}
 
 .decorate_bottom {
   position: absolute;
-  bottom: 10px;
+  bottom: 1%;
   left: 50%;
   transform: translateX(-50%);
   animation: fadeIn 3s ease forwards 2s;
@@ -182,9 +209,9 @@ body {
 /* Smiley */
 .smiley__icon {
   position: absolute;
-  top: 10%;
+  top: 5%;
   right: 5%;
-  max-width: 40px;
+  max-width: 8vw;
   animation: floatUp 4s ease-in-out infinite;
 }
 
@@ -220,17 +247,49 @@ body {
   animation: popIn 0.6s forwards;
 }
 
-.card1, .card2 {
+.card1,
+.card2 {
   background: #fff;
   border-radius: 20px;
   padding: 1rem;
-  width: 250px;
-  height: 350px;
+  width: clamp(200px, 20vw, 300px);
+  height: clamp(300px, 35vh, 400px);
   box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
   position: relative;
 }
 
-/* Animations (same as before) */
+/* Media Queries for very small devices */
+@media (max-width: 500px) {
+  .content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left, .right {
+    min-width: 90%;
+  }
+
+  .hat img {
+    top: -40px;
+    left: 5%;
+    max-width: 25vw;
+  }
+
+  .balloon_one, .balloon_two {
+    max-width: 15vw;
+  }
+
+  .smiley__icon {
+    max-width: 15vw;
+  }
+
+  .title .happy span,
+  .title .birthday span {
+    font-size: 1.8rem;
+  }
+}
+
+/* Animations */
 @keyframes bgFlow { 0% { background-position:0% 50%; } 50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
 @keyframes dropIn { 0%{ transform: translateY(-100px); opacity:0; } 100%{ transform:translateY(0); opacity:1; } }
 @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
