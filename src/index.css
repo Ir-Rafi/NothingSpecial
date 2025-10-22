@@ -1,0 +1,88 @@
+.frontpage-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(120deg, #cfecf7 0%,#20a7db 100%);
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  box-sizing: border-box;
+}
+
+.frontpage-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.frontpage-box {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 1.5s ease forwards;
+}
+
+.frontpage-text {
+  font-size: 1.4rem;
+  color: #333;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  white-space: pre-wrap;
+  letter-spacing: 0.5px;
+}
+
+.next-btn {
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: #ff4500;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.frontpage-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-image {
+  width: 80%;
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  animation: slideIn 1.8s ease forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
